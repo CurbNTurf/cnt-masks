@@ -1,0 +1,49 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "cnt-masks": {
+      "projectType": "library",
+      "root": "projects/cnt-masks",
+      "sourceRoot": "projects/cnt-masks/src",
+      "prefix": "cnt",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/cnt-masks/tsconfig.lib.json",
+            "project": "projects/cnt-masks/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/cnt-masks/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/cnt-masks/src/test.ts",
+            "tsConfig": "projects/cnt-masks/tsconfig.spec.json",
+            "karmaConfig": "projects/cnt-masks/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/cnt-masks/tsconfig.lib.json",
+              "projects/cnt-masks/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": "b657c2b3-c050-4837-b9a7-75310f4844cd"
+  },
+  "defaultProject": "cnt-masks"
+}

@@ -25,5 +25,6 @@ import { PhoneMaskPipe } from './phone/phone-mask.pipe';
     PhoneMaskDirective,
     PhoneMaskPipe,
   ],
+  providers: [CardExpirationPipe, PhoneMaskPipe],
 })
 export class CntMasksModule {}

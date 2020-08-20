@@ -50,8 +50,8 @@ export class TextMaskConfig {
 })
 export class PhoneMaskDirective
   implements ControlValueAccessor, OnChanges, OnInit {
-  @Input() public clean = true;
-  @Input() public maxNumberLength = 13;
+  @Input() public clean: boolean = true;
+  @Input() public maxNumberLength: number = 13;
 
   public textMaskConfig: TextMaskConfig;
 
@@ -59,7 +59,7 @@ export class PhoneMaskDirective
   private inputElement: HTMLInputElement;
 
   /** Whether the user is creating a composition string (IME events). */
-  private composing = false;
+  private composing: boolean = false;
 
   constructor(
     private renderer: Renderer2,
@@ -149,7 +149,7 @@ export class PhoneMaskDirective
     }
   }
 
-  setupMask(create = false): void {
+  setupMask(create: boolean = false): void {
     this.textMaskConfig = {
       mask: mask(this.maxNumberLength),
       guide: false,

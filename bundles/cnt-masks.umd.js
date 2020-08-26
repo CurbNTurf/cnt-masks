@@ -27,6 +27,20 @@
                 },] }
     ];
 
+    var CardExpirationPipeMock = /** @class */ (function () {
+        function CardExpirationPipeMock() {
+        }
+        CardExpirationPipeMock.prototype.transform = function (value) {
+            return value;
+        };
+        return CardExpirationPipeMock;
+    }());
+    CardExpirationPipeMock.decorators = [
+        { type: core.Pipe, args: [{
+                    name: 'cardExpiration',
+                },] }
+    ];
+
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation.
 
@@ -46,7 +60,7 @@
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
             function (d, b) { for (var p in b)
-                if (b.hasOwnProperty(p))
+                if (Object.prototype.hasOwnProperty.call(b, p))
                     d[p] = b[p]; };
         return extendStatics(d, b);
     };
@@ -193,10 +207,10 @@
             k2 = k;
         o[k2] = m[k];
     });
-    function __exportStar(m, exports) {
+    function __exportStar(m, o) {
         for (var p in m)
-            if (p !== "default" && !exports.hasOwnProperty(p))
-                __createBinding(exports, m, p);
+            if (p !== "default" && !Object.prototype.hasOwnProperty.call(o, p))
+                __createBinding(o, m, p);
     }
     function __values(o) {
         var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
@@ -306,7 +320,7 @@
         var result = {};
         if (mod != null)
             for (var k in mod)
-                if (Object.hasOwnProperty.call(mod, k))
+                if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k))
                     __createBinding(result, mod, k);
         __setModuleDefault(result, mod);
         return result;
@@ -1069,6 +1083,17 @@
         { type: core.ElementRef }
     ]; };
 
+    var CCCvcFormatDirectiveMock = /** @class */ (function () {
+        function CCCvcFormatDirectiveMock() {
+        }
+        return CCCvcFormatDirectiveMock;
+    }());
+    CCCvcFormatDirectiveMock.decorators = [
+        { type: core.Directive, args: [{
+                    selector: '[cntMaskCCCvc]',
+                },] }
+    ];
+
     var CCExpiryFormatDirective = /** @class */ (function () {
         function CCExpiryFormatDirective(el) {
             this.el = el;
@@ -1087,6 +1112,17 @@
     CCExpiryFormatDirective.ctorParameters = function () { return [
         { type: core.ElementRef }
     ]; };
+
+    var CCExpiryFormatDirectiveMock = /** @class */ (function () {
+        function CCExpiryFormatDirectiveMock() {
+        }
+        return CCExpiryFormatDirectiveMock;
+    }());
+    CCExpiryFormatDirectiveMock.decorators = [
+        { type: core.Directive, args: [{
+                    selector: '[cntMaskCCExp]',
+                },] }
+    ];
 
     var CCNumberFormatDirective = /** @class */ (function () {
         function CCNumberFormatDirective(renderer, el) {
@@ -1123,6 +1159,17 @@
     CCNumberFormatDirective.propDecorators = {
         onKeypress: [{ type: core.HostListener, args: ['keypress', ['$event'],] }]
     };
+
+    var CCNumberFormatDirectiveMock = /** @class */ (function () {
+        function CCNumberFormatDirectiveMock() {
+        }
+        return CCNumberFormatDirectiveMock;
+    }());
+    CCNumberFormatDirectiveMock.decorators = [
+        { type: core.Directive, args: [{
+                    selector: '[cntMaskCCNum]',
+                },] }
+    ];
 
     var CreditCardValidator = /** @class */ (function () {
         function CreditCardValidator() {
@@ -1332,15 +1379,15 @@
     }());
     PhoneMaskDirective.decorators = [
         { type: core.Directive, args: [{
-                    selector: '[cntMaskPhone]',
                     exportAs: 'cntMaskPhone',
                     providers: [
                         {
+                            multi: true,
                             provide: forms.NG_VALUE_ACCESSOR,
                             useExisting: core.forwardRef(function () { return PhoneMaskDirective; }),
-                            multi: true,
                         },
                     ],
+                    selector: '[cntMaskPhone]',
                 },] }
     ];
     PhoneMaskDirective.ctorParameters = function () { return [
@@ -1399,6 +1446,41 @@
                         PhoneMaskDirective,
                         PhoneMaskPipe,
                     ],
+                    providers: [CardExpirationPipe, PhoneMaskPipe],
+                },] }
+    ];
+
+    // @dynamic
+    var PhoneMaskDirectiveMock = /** @class */ (function () {
+        function PhoneMaskDirectiveMock() {
+        }
+        return PhoneMaskDirectiveMock;
+    }());
+    PhoneMaskDirectiveMock.decorators = [
+        { type: core.Directive, args: [{
+                    exportAs: 'cntMaskPhone',
+                    providers: [
+                        {
+                            multi: true,
+                            provide: forms.NG_VALUE_ACCESSOR,
+                            useExisting: core.forwardRef(function () { return PhoneMaskDirectiveMock; }),
+                        },
+                    ],
+                    selector: '[cntMaskPhone]',
+                },] }
+    ];
+
+    var PhoneMaskPipeMock = /** @class */ (function () {
+        function PhoneMaskPipeMock() {
+        }
+        PhoneMaskPipeMock.prototype.transform = function (value) {
+            return value;
+        };
+        return PhoneMaskPipeMock;
+    }());
+    PhoneMaskPipeMock.decorators = [
+        { type: core.Pipe, args: [{
+                    name: 'cntMaskPhone',
                 },] }
     ];
 
@@ -1411,13 +1493,19 @@
      */
 
     exports.CCCvcFormatDirective = CCCvcFormatDirective;
+    exports.CCCvcFormatDirectiveMock = CCCvcFormatDirectiveMock;
     exports.CCExpiryFormatDirective = CCExpiryFormatDirective;
+    exports.CCExpiryFormatDirectiveMock = CCExpiryFormatDirectiveMock;
     exports.CCNumberFormatDirective = CCNumberFormatDirective;
+    exports.CCNumberFormatDirectiveMock = CCNumberFormatDirectiveMock;
     exports.CardExpirationPipe = CardExpirationPipe;
+    exports.CardExpirationPipeMock = CardExpirationPipeMock;
     exports.CntMasksModule = CntMasksModule;
     exports.CreditCardValidator = CreditCardValidator;
     exports.PhoneMaskDirective = PhoneMaskDirective;
+    exports.PhoneMaskDirectiveMock = PhoneMaskDirectiveMock;
     exports.PhoneMaskPipe = PhoneMaskPipe;
+    exports.PhoneMaskPipeMock = PhoneMaskPipeMock;
     exports.TextMaskConfig = TextMaskConfig;
 
     Object.defineProperty(exports, '__esModule', { value: true });

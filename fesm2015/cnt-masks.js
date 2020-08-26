@@ -24,6 +24,17 @@ CardExpirationPipe.decorators = [
             },] }
 ];
 
+class CardExpirationPipeMock {
+    transform(value) {
+        return value;
+    }
+}
+CardExpirationPipeMock.decorators = [
+    { type: Pipe, args: [{
+                name: 'cardExpiration',
+            },] }
+];
+
 let cards;
 let defaultFormat;
 const ɵ0 = function (item) {
@@ -740,6 +751,14 @@ CCCvcFormatDirective.ctorParameters = () => [
     { type: ElementRef }
 ];
 
+class CCCvcFormatDirectiveMock {
+}
+CCCvcFormatDirectiveMock.decorators = [
+    { type: Directive, args: [{
+                selector: '[cntMaskCCCvc]',
+            },] }
+];
+
 class CCExpiryFormatDirective {
     constructor(el) {
         this.el = el;
@@ -756,6 +775,14 @@ CCExpiryFormatDirective.decorators = [
 ];
 CCExpiryFormatDirective.ctorParameters = () => [
     { type: ElementRef }
+];
+
+class CCExpiryFormatDirectiveMock {
+}
+CCExpiryFormatDirectiveMock.decorators = [
+    { type: Directive, args: [{
+                selector: '[cntMaskCCExp]',
+            },] }
 ];
 
 class CCNumberFormatDirective {
@@ -792,6 +819,14 @@ CCNumberFormatDirective.ctorParameters = () => [
 CCNumberFormatDirective.propDecorators = {
     onKeypress: [{ type: HostListener, args: ['keypress', ['$event'],] }]
 };
+
+class CCNumberFormatDirectiveMock {
+}
+CCNumberFormatDirectiveMock.decorators = [
+    { type: Directive, args: [{
+                selector: '[cntMaskCCNum]',
+            },] }
+];
 
 class CreditCardValidator {
     /**
@@ -990,15 +1025,15 @@ class PhoneMaskDirective {
 }
 PhoneMaskDirective.decorators = [
     { type: Directive, args: [{
-                selector: '[cntMaskPhone]',
                 exportAs: 'cntMaskPhone',
                 providers: [
                     {
+                        multi: true,
                         provide: NG_VALUE_ACCESSOR,
                         useExisting: forwardRef(() => PhoneMaskDirective),
-                        multi: true,
                     },
                 ],
+                selector: '[cntMaskPhone]',
             },] }
 ];
 PhoneMaskDirective.ctorParameters = () => [
@@ -1051,6 +1086,35 @@ CntMasksModule.decorators = [
                     PhoneMaskDirective,
                     PhoneMaskPipe,
                 ],
+                providers: [CardExpirationPipe, PhoneMaskPipe],
+            },] }
+];
+
+// @dynamic
+class PhoneMaskDirectiveMock {
+}
+PhoneMaskDirectiveMock.decorators = [
+    { type: Directive, args: [{
+                exportAs: 'cntMaskPhone',
+                providers: [
+                    {
+                        multi: true,
+                        provide: NG_VALUE_ACCESSOR,
+                        useExisting: forwardRef(() => PhoneMaskDirectiveMock),
+                    },
+                ],
+                selector: '[cntMaskPhone]',
+            },] }
+];
+
+class PhoneMaskPipeMock {
+    transform(value) {
+        return value;
+    }
+}
+PhoneMaskPipeMock.decorators = [
+    { type: Pipe, args: [{
+                name: 'cntMaskPhone',
             },] }
 ];
 
@@ -1062,5 +1126,5 @@ CntMasksModule.decorators = [
  * Generated bundle index. Do not edit.
  */
 
-export { CCCvcFormatDirective, CCExpiryFormatDirective, CCNumberFormatDirective, CardExpirationPipe, CntMasksModule, CreditCardValidator, PhoneMaskDirective, PhoneMaskPipe, TextMaskConfig };
+export { CCCvcFormatDirective, CCCvcFormatDirectiveMock, CCExpiryFormatDirective, CCExpiryFormatDirectiveMock, CCNumberFormatDirective, CCNumberFormatDirectiveMock, CardExpirationPipe, CardExpirationPipeMock, CntMasksModule, CreditCardValidator, PhoneMaskDirective, PhoneMaskDirectiveMock, PhoneMaskPipe, PhoneMaskPipeMock, TextMaskConfig };
 //# sourceMappingURL=cnt-masks.js.map

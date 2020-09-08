@@ -18,7 +18,6 @@
     "@angular/forms": "~10.0.11",
     "@angular/platform-browser": "~10.0.11",
     "@angular/platform-browser-dynamic": "~10.0.11",
-    "angular2-text-mask": "^9.0.0",
     "rxjs": "~6.6.2",
     "tslib": "^2.0.1",
     "zone.js": "~0.11.1"

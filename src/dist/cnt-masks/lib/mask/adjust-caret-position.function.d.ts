@@ -1,0 +1,1 @@
+export declare function adjustCaretPosition({ previousConformedValue, previousPlaceholder, currentCaretPosition, conformedValue, rawValue, placeholderChar, placeholder, indexesOfPipedChars, caretTrapIndexes, }: any): number;

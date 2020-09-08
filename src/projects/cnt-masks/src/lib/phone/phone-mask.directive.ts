@@ -18,7 +18,7 @@ import {
   ControlValueAccessor,
   NG_VALUE_ACCESSOR,
 } from '@angular/forms';
-import { createTextMaskInputElement } from 'text-mask-core/dist/textMaskCore';
+import { createTextMaskInputElement } from '../mask/create-text-mask-input-element.function';
 import { clean, mask } from './utils';
 
 export class TextMaskConfig {

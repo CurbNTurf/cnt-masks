@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { conformToMask } from 'angular2-text-mask';
+import { conformToMask } from '../mask/conform-to-mask.function';
 import { mask } from './utils';
 
 @Pipe({

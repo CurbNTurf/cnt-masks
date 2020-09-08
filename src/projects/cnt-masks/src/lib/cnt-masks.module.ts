@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { TextMaskModule } from 'angular2-text-mask';
+import { TextMaskModule } from './angular-2-text-mask.module';
 import { CardExpirationPipe } from './cc/card-expiration.pipe';
 import { CCCvcFormatDirective } from './cc/directives/cc-cvc-format.directive';
 import { CCExpiryFormatDirective } from './cc/directives/cc-expiry-format.directive';

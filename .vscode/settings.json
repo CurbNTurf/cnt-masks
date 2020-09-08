@@ -1,8 +1,16 @@
 {
   "cSpell.words": [
+    "dom",
     "forin",
+    "get",
     "hipercard",
     "luhn",
-    "qjon"
+    "qjon",
+    "ɵget dom"
+  ],
+  "cSpell.ignoreWords": [
+    "dom",
+    "get",
+    "ɵget dom"
   ]
 }
